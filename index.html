@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Citas médicas</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div id="app">
+        <h1>Gestor de citas</h1>
+        <form @submit.prevent="enviarCita" id="create">
+            <h3>Crear cita</h3>
+            <label for="cc">Documento:</label>
+            <input type="text" v-model="cc" required/><br>
+            
+            <label for="fecha">Fecha:</label>
+            <input type="date" v-model="fecha" required/><br>
+
+            <label for="autorización">Copia autorización:</label><br>
+            <input type="file" @change="onFileChange" id="file-input" required/> <br>
+            <button type="submit" id="button">Enviar</button><br>
+        </form>
+        
+        <form @submit.prevent="buscarCitas" id="search">
+            <h3>Consultar citas</h3>
+            
+            <label for="">Inicio del rango:</label>
+            <input type="date" v-model="fechaInicio"><br>
+
+            <label for="">Fin del rango:</label>
+            <input type="date" v-model="fechaFin"><br>
+
+            <button type="submit" id="button">Buscar</button><br>
+            
+            <div id="appointments">
+                <ul v-for="citas in citas">
+                    <li>
+                        Código: {{citas.codigo}} <br>
+                        cc: {{citas.cc}} <br>
+                        fecha: {{citas.fecha}} <br>
+                        <img v-if="citas.autorizacion" :src="citas.autorizacion" alt="Autorización" width="100" /> <br>
+                        <span v-if="citas.cancelada">Cita cancelada</span>
+                        <span v-else>Cita sin cancelar</span>
+                    </li>
+                </ul>
+            </div>
+        </form>
+        
+        <form @submit.prevent="cancelarCita" id="cancel">
+            <h3>Cancelar cita</h3>
+            <label for="" >Código cita:</label>
+            <input type="number" v-model="codigoEliminar"><br>
+            <button type="submit" id="button">Cancelar cita</button>
+        </form>
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="client.js"></script>
+</body>
+
+</html>

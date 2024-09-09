@@ -1,0 +1,57 @@
+body{
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-y: auto;
+    background-image: url('image.jpg');
+    background-size: cover; 
+}
+
+#app{
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    width: 490px;
+    border-radius: 15px;
+    font-family: Arial, sans-serif;
+    text-align: left;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    line-height: 2;
+    font-family:'Courier New', Courier, monospace;
+    overflow-y: auto;
+}
+
+#create, #search, #cancel{
+    background-color:rgba(195, 199, 208, 0.7);
+    line-height: 2;
+    border-radius: 10px;
+    margin: 10px;
+    padding: 5px;
+    padding-bottom: 5px;
+    padding-left: 15px;
+}
+
+#appointments {
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+#file-input{
+    font-family:'Courier New', Courier, monospace;
+
+}
+
+#button{
+    border-radius: 5px;
+    background-color: #66f1f1;
+    border-width: 1px;
+}
+
+.title{
+    font-family:'Courier New', Courier, monospace;
+    font-weight: bolder;
+    font-size: larger;
+
+}
